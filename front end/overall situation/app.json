@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/guide/guide",
+    "pages/route/route",
+    "pages/community/community",
+    "pages/user/user",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "AI-travel",
+    "navigationBarBackgroundColor": "#fdcf9d"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#FF6500",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/pages/icon/home.png",
+        "selectedIconPath": "/pages/icon/home.png"
+      },
+      {
+        "pagePath": "pages/guide/guide",
+        "text": "AI助手",
+        "iconPath": "/pages/icon/guide.png",
+        "selectedIconPath": "/pages/icon/guide.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/pages/icon/user.png",
+        "selectedIconPath": "/pages/icon/user.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位和路线规划功能"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ]
+}
