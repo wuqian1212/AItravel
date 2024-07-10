@@ -11,8 +11,8 @@ Page({
     // 模拟一些初始消息
     this.setData({
       messages: [
-        { id: 1, content: '你好!', avatar: '/icon/person.png', isSelf: false },
-        { id: 2, content: '你好,很高兴认识你!', avatar: '/icon/person.png', isSelf: true },
+        { id: 1, content: '你好!', avatar: '/pages/icon/person.png', isSelf: false },
+        { id: 2, content: '你好,很高兴认识你!', avatar: '/pages/icon/person.png', isSelf: true },
       ]
     });
     this.getLocation();
@@ -87,7 +87,7 @@ Page({
     const newMessage = {
       id: this.data.messages.length + 1,
       content: this.data.inputMessage,
-      avatar: '/icon/person.png',
+      avatar: '/pages/icon/person.png',
       isSelf: true
     };
 
@@ -102,7 +102,7 @@ Page({
       const replyMessage = {
         id: this.data.messages.length + 1,
         content: '收到你的消息了!',
-        avatar: '/icon/person.png',
+        avatar: '/pages/icon/person.png',
         isSelf: false
       };
 
