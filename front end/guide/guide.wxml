@@ -1,0 +1,33 @@
+<view class="page-container">
+  <view class="nav-bar">
+    <view class="nav-title">AI导游</view>
+    <view class="location-container">
+      <image class="nav-icon location" src="/icon/location.png" bindtap="showLocation"></image>
+      <text class="location-text">{{locationName}}</text>
+    </view>
+  </view>
+ 
+  <view class="chat-container {{showOperationPanel ? 'shifted' : ''}}">
+    <scroll-view scroll-y class="message-list" scroll-into-view="{{scrollToMessage}}">
+      <block wx:for="{{messages}}" wx:key="id">
+        <view id="msg-{{item.id}}" class="message {{item.isSelf ? 'self' : 'other'}}">
+          <image class="avatar" src="{{item.avatar}}"></image>
+          <view class="content">{{item.content}}</view>
+        </view>
+      </block>
+    </scroll-view>
+    
+    <view class="input-area">
+      <input class="message-input" type="text" value="{{inputMessage}}" bindinput="onInputChange" placeholder="输入消息..."/>
+      <button class="send-button" bindtap="sendMessage">发送</button>
+      <view class="add-button" bindtap="toggleOperationPanel">+</view>
+    </view>
+  </view>
+
+  <view class="operation-panel {{showOperationPanel ? 'show' : ''}}">
+    <!-- 在这里添加操作面板的内容 -->
+    <view>操作1</view>
+    <view>操作2</view>
+    <view>操作3</view>
+  </view>
+</view>
