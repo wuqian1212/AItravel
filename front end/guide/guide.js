@@ -8,10 +8,10 @@ Page({
   },
 
   onLoad: function() {
-    // 模拟一些初始消息
+    //模拟一些初始消息
     this.setData({
       messages: [
-        { id: 1, content: '你好!', avatar: '/pages/icon/person.png', isSelf: false },
+        { id: 1, content: '你好!', avatar: '/icon/person.png', isSelf: false },
         { id: 2, content: '你好,很高兴认识你!', avatar: '/pages/icon/person.png', isSelf: true },
       ]
     });
@@ -83,36 +83,46 @@ Page({
 
   sendMessage: function() {
     if (!this.data.inputMessage.trim()) return;
-
+  
     const newMessage = {
       id: this.data.messages.length + 1,
       content: this.data.inputMessage,
-      avatar: '/pages/icon/person.png',
+      avatar: '/icon/person.png',
       isSelf: true
     };
-
+  
     this.setData({
       messages: [...this.data.messages, newMessage],
       inputMessage: '',
       scrollToMessage: `msg-${newMessage.id}`
     });
-
-    // 模拟接收回复
-    setTimeout(() => {
-      const replyMessage = {
-        id: this.data.messages.length + 1,
-        content: '收到你的消息了!',
-        avatar: '/pages/icon/person.png',
-        isSelf: false
-      };
-
-      this.setData({
-        messages: [...this.data.messages, replyMessage],
-        scrollToMessage: `msg-${replyMessage.id}`
-      });
-    }, 1000);
+  
+    // 发送消息到后端
+    this.sendMessageToBackend(newMessage.content);
   },
-
+  
+  sendMessageToBackend: function(message) {
+    wx.request({
+      url: 'http://192.168.1.127:8080/GPT/chat?question='+message, 
+      method: 'POST',
+      success: (res) => {
+        console.log(message)
+        console.log('消息发送成功:', res.data);
+        // 如果后端返回了响应，你可以在这里处理
+        // 例如，显示机器人的回复
+        if (res.data) {
+          this.addBotReply(res.data);
+        }
+      },
+      fail: (error) => {
+        console.error('消息发送失败:', error);
+        wx.showToast({
+          title: '发送失败，请重试',
+          icon: 'none'
+        });
+      }
+    });
+  },
   toggleOperationPanel: function() {
     this.setData({
       showOperationPanel: !this.data.showOperationPanel
@@ -131,71 +141,35 @@ Page({
       icon: 'none'
     });
     // 这里可以添加显示位置信息的逻辑
+  },
+  addBotReply: function(replyContent) {
+    // 创建新的机器人消息对象
+    const botReply = {
+      id: this.data.messages.length + 1, // 给新消息一个唯一的 ID
+      content: replyContent, // 机器人回复的内容
+      avatar: '/icon/person.png', // 机器人的头像图片路径，请确保路径正确
+      isSelf: false // 标记为非用户消息
+    };
+  
+    // 将新的机器人消息添加到消息列表中
+    this.setData({
+      messages: [...this.data.messages, botReply],
+      scrollToMessage: `msg-${botReply.id}` // 设置滚动到新消息
+    });
+  
+    // 可选：如果你想在添加消息后执行一些操作，可以在这里添加
+    // 例如，滚动到最新消息
+    this.scrollToBottom();
+  },
+  
+  // 辅助函数：滚动到底部
+  scrollToBottom: function() {
+    wx.createSelectorQuery().select('#chat-container').boundingClientRect(rect => {
+      wx.pageScrollTo({
+        scrollTop: rect.bottom,
+        duration: 300 // 滚动动画持续时间，单位为 ms
+      });
+    }).exec();
   }
+  
 });
-
-// Page({
-
-//   /**
-//    * 页面的初始数据
-//    */
-//   data: {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面加载
-//    */
-//   onLoad(options) {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面初次渲染完成
-//    */
-//   onReady() {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面显示
-//    */
-//   onShow() {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面隐藏
-//    */
-//   onHide() {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面卸载
-//    */
-//   onUnload() {
-
-//   },
-
-//   /**
-//    * 页面相关事件处理函数--监听用户下拉动作
-//    */
-//   onPullDownRefresh() {
-
-//   },
-
-//   /**
-//    * 页面上拉触底事件的处理函数
-//    */
-//   onReachBottom() {
-
-//   },
-
-//   /**
-//    * 用户点击右上角分享
-//    */
-//   onShareAppMessage() {
-
-//   }
-// })
