@@ -3,7 +3,7 @@
   <view class="nav-title">AI导游</view>
   <!-- 定位 -->
   <view class="location-btn" bindtap="showLocationOnMap">
-    <image class="location-icon" src="/pages/icon/定位.png" mode="aspectFit"/>
+    <image class="location-icon" src="/icon/location.png" mode="aspectFit"/>
     <text class="location-text">{{locationName || '定位'}}</text>
   </view>
 </view>
@@ -20,7 +20,18 @@
     </scroll-view>
     <!-- 输入区 -->
     <view class="input-area">
-      <input class="message-input" type="text" value="{{inputMessage}}" bindinput="onInputChange" placeholder="输入消息..."/>
+      <textarea 
+        class="message-input" 
+        value="{{inputMessage}}" 
+        bindinput="onInputChange" 
+        bindlinechange="adjustTextareaHeight"
+        auto-height
+        maxlength="-1"
+        show-confirm-bar="{{false}}"
+        adjust-position="{{false}}"
+        hold-keyboard="{{true}}"
+        cursor-spacing="20"
+        placeholder="输入消息..."/>
       <view class="send-button" bindtap="sendMessage">发送</view>
       <view class="add-button" bindtap="toggleOperationPanel">+</view>
     </view>
