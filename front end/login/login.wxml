@@ -1,0 +1,20 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="login-box">
+    <view class="title">欢迎登录</view>
+    <view class="login-form">
+      <view class="input-group">
+        <image src="/icon/person.png" class="icon"></image>
+        <input class="input" placeholder="用户名/手机号" bindinput="onInputUsername" />
+      </view>
+      <view class="input-group">
+        <image src="/icon/icons8-heart-keyhole-48.png" class="icon"></image>
+        <input class="input" placeholder="密码" password="true" bindinput="onInputPassword" />
+      </view>
+      <button class="login-btn" bindtap="onLogin">登录</button>
+    </view>
+    <view class="register-link" bindtap="goToRegister">
+      没有账号？立即注册
+    </view>
+  </view>
+</view>
