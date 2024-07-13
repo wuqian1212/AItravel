@@ -1,0 +1,10 @@
+<!--pages/changePhone/changePhone.wxml-->
+<view class="container">
+  <view class="title">修改电话</view>
+  
+  <view class="input-area">
+    <input type="number" placeholder="请输入新的电话号码" bindinput="inputPhone" value="{{newPhone}}" />
+  </view>
+  
+  <button class="submit-btn" bindtap="submitNewPhone">提交</button>
+</view>
