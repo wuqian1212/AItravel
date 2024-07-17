@@ -37,9 +37,10 @@ Page({
       id: userId,
       password: oldPassword
     };
+    const app = getApp();
     return new Promise((resolve, reject) => {
       wx.request({
-        url: 'http://192.168.1.127:8080/user/checkPassword',
+        url: app.globalData.globalurl+'/user/updatePassword',
         method: 'POST',
         data: requestPassword,
         header: {
