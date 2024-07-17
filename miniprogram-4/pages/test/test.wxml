@@ -1,0 +1,20 @@
+<!-- <view class="container">
+  <view class="title">语音转文字</view>
+  
+  <view class="button-container">
+    <button class="record-button {{isRecording ? 'recording' : ''}}" bindtap="toggleRecording">
+      {{isRecording ? '停止录音' : '开始录音'}}
+    </button>
+  </view>
+  
+  <view class="text-container">
+    <text class="recognized-text">{{recognizedText}}</text>
+  </view>
+</view> -->
+
+
+
+
+
+
+

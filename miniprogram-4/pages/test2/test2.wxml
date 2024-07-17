@@ -1,0 +1,8 @@
+<!--pages/test2/test2.wxml--> 
+<view class="container">  
+  <button bindtap="startRecord">开始录音</button>  
+  <button bindtap="stopRecord" disabled="{{isRecording}}">结束录音</button>  
+  <view wx:if="{{hasRecorded}}">  
+    录音已保存：{{recordedFilePath}}  
+  </view>  
+</view>

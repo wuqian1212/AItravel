@@ -1,0 +1,19 @@
+<!--pages/setUp/setUp.wxml-->
+<view class="container">
+  <view class="setting-list">
+    <view class="setting-item" bindtap="navigateToChangePhone">
+      <text>修改电话</text>
+      <image src="/icon/forward.png" mode="aspectFit" class="arrow-icon"></image>
+    </view>
+    <view class="setting-item" bindtap="navigateToChangePassword">
+      <text>修改密码</text>
+      <image src="/icon/forward.png" mode="aspectFit" class="arrow-icon"></image>
+    </view>
+  </view>
+  
+  <view class="logout-button" bindtap="showLogoutConfirm">退出登录</view>
+  
+  <modal hidden="{{!showLogoutConfirm}}" title="确认退出" confirm-text="退出" cancel-text="取消" bindcancel="cancelLogout" bindconfirm="confirmLogout">
+    <view>确定要退出登录吗？</view>
+  </modal>
+</view>

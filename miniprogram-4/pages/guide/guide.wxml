@@ -1,0 +1,46 @@
+<view class="page-container">
+  <view class="nav-bar">
+  <view class="nav-title">AI导游</view>
+  <!-- 定位 -->
+  <view class="location-btn" bindtap="showLocationOnMap">
+    <image class="location-icon" src="/icon/location.png" mode="aspectFit"/>
+    <text class="location-text">{{locationName || '定位'}}</text>
+  </view>
+</view>
+
+<!-- 对话框 -->
+  <view class="chat-container {{showOperationPanel ? 'shifted' : ''}}">
+    <scroll-view scroll-y class="message-list" scroll-into-view="{{scrollToMessage}}">
+      <block wx:for="{{messages}}" wx:key="id">
+        <view id="msg-{{item.id}}" class="message {{item.isSelf ? 'self' : 'other'}}">
+          <image class="avatar" src="{{item.avatar}}"></image>
+          <view class="content">{{item.content}}</view>
+        </view>
+      </block>
+    </scroll-view>
+    <!-- 输入区 -->
+    <view class="input-area">
+      <textarea 
+        class="message-input" 
+        value="{{inputMessage}}" 
+        bindinput="onInputChange" 
+        bindlinechange="adjustTextareaHeight"
+        auto-height
+        maxlength="-1"
+        show-confirm-bar="{{false}}"
+        adjust-position="{{false}}"
+        hold-keyboard="{{true}}"
+        cursor-spacing="20"
+        placeholder="输入消息..."/>
+      <view class="send-button" bindtap="sendMessage">发送</view>
+      <view class="add-button" bindtap="toggleOperationPanel">+</view>
+    </view>
+  </view>
+
+  <view class="operation-panel {{showOperationPanel ? 'show' : ''}}">
+    <!-- 在这里添加操作面板的内容 -->
+    <view>操作1</view>
+    <view>操作2</view>
+    <view>操作3</view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+/* pages/changePhone/changePhone.wxss */
+.container {
+  padding: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 90rpx;
+}
+
+.input-area {
+  margin-bottom: 50rpx;
+}
+
+input {
+  border: 1rpx solid #ddd;
+  padding: 20rpx;
+  border-radius: 10rpx;
+}
+
+.submit-btn {
+  border: 1px rgb(240, 172, 94) solid;
+  color: rgb(240, 119, 88);
+  border-radius: 20px;
+}

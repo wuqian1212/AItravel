@@ -1,0 +1,46 @@
+/* pages/setUp/setUp.wxss */
+.container {
+  padding: 20rpx;
+  width: 100%;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.setting-list {
+  width: 90%;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.arrow-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.logout-button {
+  width: 70%;
+  bottom: 10rpx;
+  background: linear-gradient(to right,rgb(250, 139, 66), rgb(247, 203, 170));
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 30rpx;
+}
+
+
+
+

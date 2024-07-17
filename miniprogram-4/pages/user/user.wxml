@@ -1,0 +1,42 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="user-info">
+    <image class="avatar" src="{{userInfo.avatarUrl || '/icon/person.png'}}" mode="aspectFill" bindtap="handleAvatarTap"></image>
+    <view class="user-details">
+      <block wx:if="{{isLoggedIn}}">
+        <text class="username">{{userInfo.username}}</text>
+        <text class="user-id">ID: {{userInfo.id}}</text>
+      </block>
+      <block wx:else>
+        <button id="login-btn" bindtap="navigateToLogin">登录/注册</button>
+      </block>
+    </view>
+  </view>
+
+  <view class="options">
+    <view class="option-item" bindtap="navigateTo" data-page="bill">
+      <text class="option-text">账单</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="option-item" bindtap="navigateTo" data-page="favorites">
+      <text class="option-text">收藏</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="option-item" bindtap="navigateTo" data-page="history">
+      <text class="option-text">历史记录</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="option-item" bindtap="navigateTo" data-page="settings">
+      <text class="option-text">设置</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="option-item" bindtap="navigateTo" data-page="customerService">
+      <text class="option-text">联系客服</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="option-item" bindtap="navigateTo" data-page="aboutUs">
+      <text class="option-text">关于我们</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+</view>

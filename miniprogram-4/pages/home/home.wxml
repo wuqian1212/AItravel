@@ -1,0 +1,2 @@
+<!--pages/home/home.wxml-->
+<map src="your_map_src_here" bindregionchange="regionChange" />
