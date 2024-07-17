@@ -57,9 +57,9 @@ const requestData = {
 };
 
 console.log('发送的请求数据:', requestData);
-
+const app = getApp();
 wx.request({
-  url: 'http://192.168.1.127:8080/user/updatePhone',
+  url: app.globalData.globalurl+'/user/updatePassword',
   method: 'PUT',
   data: requestData,
   header: {
