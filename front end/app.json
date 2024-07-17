@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/guide/guide",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/home/home",
+    "pages/route/route",
+    "pages/user/user",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/userinfo/userinfo",
+    "pages/setUp/setUp",
+    "pages/changePhone/changePhone",
+    "pages/changePassword/changePassword",
+    "pages/test/test",
+    "pages/test2/test2"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "selectedColor": "#00066",
+    "list":[
+      {
+        "pagePath": "pages/home/home",
+        "text":"首页",
+        "iconPath":"/icon/home.png",
+        "selectedIconPath": "/icon/home.png"
+      },
+      {
+        "pagePath": "pages/guide/guide",
+        "text":"AI",
+        "iconPath":"/icon/ai.png",
+        "selectedIconPath": "/icon/ai.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text":"个人",
+        "iconPath":"/icon/person.png",
+        "selectedIconPath": "/icon/person.png"
+      },
+      {
+        "pagePath": "pages/test2/test2",
+        "text":"test",
+        "iconPath":"/icon/person.png",
+        "selectedIconPath": "/icon/person.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.record": {
+      "desc": "你的小程序需要访问麦克风以进行语音识别"
+    }
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+ 
+  "lazyCodeLoading": "requiredComponents"
+  
+}
