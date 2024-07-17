@@ -34,7 +34,6 @@ Page({
       }
     });
   },
-  
   getLocationName: function(latitude, longitude) {
     wx.request({
       url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${latitude},${longitude}&key=YOUR_KEY_HERE`,
@@ -102,8 +101,9 @@ Page({
   },
   
   sendMessageToBackend: function(message) {
+    const app = getApp();
     wx.request({
-      url: 'http://192.168.1.127:8080/GPT/chat?question='+message, 
+      url: app.globalData.globalurl+'/user/updatePassword',
       method: 'POST',
       success: (res) => {
         console.log(message)
