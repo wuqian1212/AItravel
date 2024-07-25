@@ -1,0 +1,26 @@
+{
+  "name": "ai_travel",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "ant-design-vue": "^4.2.3",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "deep-chat": "^2.0.0",
+    "izitoast": "^1.4.0",
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "vite": "^5.3.1",
+    "vite-plugin-vue-devtools": "^7.3.1"
+  }
+}
